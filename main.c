@@ -7,6 +7,7 @@
 
 int main(void)
 {
-	execute();
+	_getline();
+	/*execute();*/
 	return (0);
 }

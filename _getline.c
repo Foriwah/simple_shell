@@ -1,10 +1,10 @@
 #include "shell.h"
 /**
- * read_input - function to read input
+ * _getline - function to read input
  *takes nothing
  *Return: nothing(test purposes)
  */
-void *read_input(void)
+void _getline(void)
 {
 	size_t n = 0;
 	ssize_t result;
@@ -24,5 +24,5 @@ void *read_input(void)
 
 	/*return (buffer);*/
 	printf("success");
-	return (0);
+	free(buffer);
 }

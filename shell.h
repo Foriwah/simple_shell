@@ -10,5 +10,6 @@
 #include <string.h>
 
 void execute(void);
+void _getline(void);
 
 #endif
