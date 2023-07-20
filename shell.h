@@ -9,7 +9,8 @@
 #include <sys/wait.h>
 #include <string.h>
 
-void execute(void);
-void _getline(void);
+void execute(char **argv);
+char **tokenize_input(char *input);
+char *_getline(void);
 
 #endif

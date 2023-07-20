@@ -7,7 +7,14 @@
 
 int main(void)
 {
-	_getline();
-	/*execute();*/
+	char *input;
+	char **argv;
+
+	input = _getline();
+	input[strcspn(input, "\n")] = '\0';
+	argv = tokenize_input(input);
+	execute(argv);
+	free(input);
+
 	return (0);
 }

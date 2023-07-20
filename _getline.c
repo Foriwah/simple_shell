@@ -4,7 +4,7 @@
  *takes nothing
  *Return: nothing(test purposes)
  */
-void _getline(void)
+char *_getline(void)
 {
 	size_t n = 0;
 	ssize_t result;
@@ -21,8 +21,5 @@ void _getline(void)
 		perror("An error occured");
 		exit(1);
 	}
-
-	/*return (buffer);*/
-	printf("success");
-	free(buffer);
+	return (buffer);
 }
