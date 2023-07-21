@@ -51,6 +51,9 @@ void execute(char **argv)
 	int i;
 	pid_t child_pid = fork();
 
+	if (argv == NULL)
+		exit(1);
+
 	if (child_pid == -1)
 	{
 		perror("Error");
