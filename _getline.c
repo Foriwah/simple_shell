@@ -7,14 +7,16 @@
 char *_getline(void)
 {
 	size_t n = 0;
-	ssize_t result;
+	ssize_t result, _write;
 	/*remove this */
 	char *buffer = NULL;
 
-	printf("=>");
-
+	_write = write(1, "$", 1);
+	if (_write == -1)
+	{
+		perror("An error has occured");
+	}
 	result = getline(&buffer, &n, stdin);
-
 	if (result == -1)
 	{
 		free(buffer);
