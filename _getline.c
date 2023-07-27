@@ -23,8 +23,10 @@ char *_getline(void)
 		}
 		else
 		{
-			perror("An error occured");
-			exit(1);
+			/**
+			 * perror("An error occured");
+			 */
+			exit(0);
 		}
 		return (NULL);
 	}
