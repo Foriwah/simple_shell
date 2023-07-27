@@ -2,13 +2,16 @@
 
 /**
  * main - main function;
+ * @argc: argument counter
+ * @arg: array of Argument
  * Return: something
  */
 
-int main(void)
+int main(int argc, char *arg[])
 {
 	char *input;
 	char **argv;
+	(void)argc;
 
 	if (isatty(STDIN_FILENO))
 	{
@@ -17,7 +20,7 @@ int main(void)
 			input = _getline();
 			input[strcspn(input, "\n")] = '\0';
 			argv = tokenize_input(input);
-			execute(argv);
+			execute(argv, arg[0]);
 			free(input);
 		}
 	}
@@ -26,7 +29,7 @@ int main(void)
 		input = _getline();
 		input[strcspn(input, "\n")] = '\0';
 		argv = tokenize_input(input);
-		execute(argv);
+		execute(argv, arg[0]);
 		free(input);
 	}
 	return (0);

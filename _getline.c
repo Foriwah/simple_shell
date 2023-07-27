@@ -23,7 +23,6 @@ char *_getline(void)
 		}
 		else
 		{
-			free(buffer);
 			perror("An error occured");
 			exit(1);
 		}

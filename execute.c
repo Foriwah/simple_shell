@@ -44,9 +44,10 @@ char **tokenize_input(char *input)
 /**
  * execute - Our execute function
  * @argv: tokenized input
+ * @executable: sojoeo
  */
 
-void execute(char **argv)
+void execute(char **argv, char *executable)
 {
 	int i;
 	pid_t child_pid = fork();
@@ -56,7 +57,7 @@ void execute(char **argv)
 
 	if (child_pid == -1)
 	{
-		perror("Error");
+		perror(executable);
 		for (i = 0; argv[i] != NULL; i++)
 		{
 			free(argv[i]);
@@ -68,7 +69,7 @@ void execute(char **argv)
 	{
 		if (execve(argv[0], argv, NULL) == -1)
 		{
-			perror("Error");
+			perror(executable);
 			for (i = 0; argv[i] != NULL; i++)
 				free(argv[i]);
 			free(argv);
