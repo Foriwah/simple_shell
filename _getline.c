@@ -19,9 +19,19 @@ char *_getline(void)
 	result = getline(&buffer, &n, stdin);
 	if (result == -1)
 	{
-		free(buffer);
-		perror("An error occured");
-		exit(1);
+		if (feof(stdin))
+		{
+			printf("\n");
+			free(buffer);
+			exit(0);
+		}
+		else
+		{
+			free(buffer);
+			perror("An error occured");
+			exit(1);
+		}
+		return (NULL);
 	}
 	return (buffer);
 }

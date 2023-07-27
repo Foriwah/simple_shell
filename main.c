@@ -10,7 +10,18 @@ int main(void)
 	char *input;
 	char **argv;
 
-	while (1)
+	if (isatty(STDIN_FILENO))
+	{
+		while (1)
+		{
+			input = _getline();
+			input[strcspn(input, "\n")] = '\0';
+			argv = tokenize_input(input);
+			execute(argv);
+			free(input);
+		}
+	}
+	else
 	{
 		input = _getline();
 		input[strcspn(input, "\n")] = '\0';
@@ -18,7 +29,6 @@ int main(void)
 		execute(argv);
 		free(input);
 	}
-
 	return (0);
 
 }
