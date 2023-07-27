@@ -7,7 +7,7 @@
 char *_getline(void)
 {
 	size_t n = 0;
-	ssize_t result, _write;
+	ssize_t result;
 	/*remove this */
 	char *buffer = NULL;
 
