@@ -11,11 +11,7 @@ char *_getline(void)
 	/*remove this */
 	char *buffer = NULL;
 
-	_write = write(1, "$", 1);
-	if (_write == -1)
-	{
-		perror("An error has occured");
-	}
+	printf("#");
 	result = getline(&buffer, &n, stdin);
 	if (result == -1)
 	{
