@@ -38,6 +38,10 @@ char **tokenize_input(char *input)
 		exit(1);
 	}
 	argv[argc] = NULL;
+	if (argc > 0 && argv[argc - 1][strlen(argv[argc - 1]) - 1] == '\n')
+	{
+		argv[argc - 1][strlen(argv[argc - 1]) - 1] = '\0';
+	}
 	return (argv);
 }
 
