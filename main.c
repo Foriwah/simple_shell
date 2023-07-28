@@ -34,8 +34,10 @@ int main(int argc, char *arg[])
 			free(buffer);
 			exit(0);
 		}
-		buffer[strcspn(buffer, "\n")] = '\0';
+		/*buffer[strcspn(buffer, "\n")] = '\0';*/
 		argv = tokenize_input(buffer);
+		if (_getenv(buffer, argv) == 0)
+			continue;
 		execute(argv, arg[0]);
 		/*free(buffer);*/
 	}
