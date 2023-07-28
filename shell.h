@@ -11,6 +11,5 @@
 
 void execute(char **argv, char *executable);
 char **tokenize_input(char *input);
-char *_getline(void);
 
 #endif

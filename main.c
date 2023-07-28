@@ -1,4 +1,14 @@
 #include "shell.h"
+/**
+ * prompt - print prompt in interactive mode
+ * Return: NULL
+ */
+
+void prompt(void)
+{
+	if (isatty(STDIN_FILENO))
+		write(STDOUT_FILENO, "$ ", 2);
+}
 
 /**
  * main - main function;
@@ -9,28 +19,25 @@
 
 int main(int argc, char *arg[])
 {
-	char *input;
 	char **argv;
+	size_t n = 0;
+	ssize_t result;
+	char *buffer = NULL;
 	(void)argc;
 
-	if (isatty(STDIN_FILENO))
+	while (1)
 	{
-		while (1)
+		prompt();
+		result = getline(&buffer, &n, stdin);
+		if (result == -1)
 		{
-			input = _getline();
-			input[strcspn(input, "\n")] = '\0';
-			argv = tokenize_input(input);
-			execute(argv, arg[0]);
-			free(input);
+			free(buffer);
+			exit(0);
 		}
-	}
-	else
-	{
-		input = _getline();
-		input[strcspn(input, "\n")] = '\0';
-		argv = tokenize_input(input);
+		buffer[strcspn(buffer, "\n")] = '\0';
+		argv = tokenize_input(buffer);
 		execute(argv, arg[0]);
-		free(input);
+		/*free(buffer);*/
 	}
 	return (0);
 
