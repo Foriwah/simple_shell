@@ -77,7 +77,7 @@ void execute(char **argv, char *executable)
 			for (i = 0; argv[i] != NULL; i++)
 				free(argv[i]);
 			free(argv);
-			exit(2);
+			exit(0);
 		}
 	}
 	else

@@ -23,6 +23,7 @@ int main(int argc, char *arg[])
 	size_t n = 0;
 	ssize_t result;
 	char *buffer = NULL;
+	struct stat st;
 	(void)argc;
 
 	while (1)
@@ -39,9 +40,15 @@ int main(int argc, char *arg[])
 		myexit(buffer, argv);
 		if (_getenv(buffer, argv) == 0)
 			continue;
-		execute(argv, arg[0]);
-		/*free(buffer);*/
+		if (argv != NULL && argv[0] != NULL)
+		{
+			if (stat(argv[0], &st) == -1)
+				exit(1);
+			else
+				execute(argv, arg[0]);
+		}
+		else if (argv == NULL)
+			exit(1);
 	}
 	return (0);
-
 }
