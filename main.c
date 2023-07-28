@@ -39,7 +39,7 @@ int main(int argc, char *arg[])
 		myexit(buffer, argv);
 		if (_getenv(buffer, argv) == 0)
 			continue;
-		execute(argv, arg[0]);
+		execute(argv, arg[0], buffer);
 		/*free(buffer);*/
 	}
 	return (0);
