@@ -36,6 +36,7 @@ int main(int argc, char *arg[])
 		}
 		/*buffer[strcspn(buffer, "\n")] = '\0';*/
 		argv = tokenize_input(buffer);
+		myexit(buffer, argv);
 		if (_getenv(buffer, argv) == 0)
 			continue;
 		execute(argv, arg[0]);

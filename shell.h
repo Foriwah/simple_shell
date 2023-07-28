@@ -12,5 +12,6 @@ extern char **environ;
 void execute(char **argv, char *executable);
 char **tokenize_input(char *input);
 int _getenv(char *buffer, char **argv);
+void myexit(char *buffer, char **argv);
 
 #endif
