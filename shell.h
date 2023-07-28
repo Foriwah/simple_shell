@@ -9,7 +9,7 @@
 #include <sys/wait.h>
 #include <string.h>
 extern char **environ;
-void execute(char **argv, char *executable, char *buffer);
+void execute(char **argv, char *executable);
 char **tokenize_input(char *input);
 int _getenv(char *buffer, char **argv);
 void myexit(char *buffer, char **argv);
