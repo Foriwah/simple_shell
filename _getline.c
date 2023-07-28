@@ -11,13 +11,12 @@ char *_getline(void)
 	/*remove this */
 	char *buffer = NULL;
 
-	printf("#");
+	printf("# ");
 	result = getline(&buffer, &n, stdin);
 	if (result == -1)
 	{
 		if (feof(stdin))
 		{
-			printf("\n");
 			free(buffer);
 			exit(0);
 		}
